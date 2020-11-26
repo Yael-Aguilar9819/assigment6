@@ -1,4 +1,4 @@
 language: java
-jdk: openjdk14
+jdk: openjdk8
 after_success:
   - mvn coveralls:report
