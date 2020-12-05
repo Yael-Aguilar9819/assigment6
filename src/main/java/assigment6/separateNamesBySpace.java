@@ -9,6 +9,4 @@ public class separateNamesBySpace implements namesSeparator {
        String[] arrayOfNames =  namesCloseToEachOther.split(" ");
        return Arrays.asList(arrayOfNames);
     }
-
-
 }
