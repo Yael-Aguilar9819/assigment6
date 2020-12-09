@@ -25,6 +25,9 @@ public class MyMessageDITest {
 		//Send email
 		injector = new EmailServiceInjector();
 		Consumer app = injector.getConsumer();
+		
+		
+		
 		app.processMessages(msg, email);
 		
 		//Send SMS

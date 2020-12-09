@@ -2,7 +2,9 @@ package assigment6;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.BeforeEach;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 class namesSeparatorTest {
@@ -10,18 +12,19 @@ class namesSeparatorTest {
         /**
          * Rigorous Test.
          */
-        // @BeforeEach
-        // void  firstTest() {
-        //     System.out.print("ah");
-        // }
-    
+        namesSeparator injector;
     
         @Test
-        void testApp() {
-            assertEquals(1, 1);
+        void separationByCommaTestSuccessWholeArray() {
+            injector = new separateNamesByComma();
+
+            List<String> a = injector.separateNames("josh, rick");
+
+            
+            assertEquals("[josh, kris]", a.toString());
         }
 
-        // public static void main(String[] args) {
-        //     testApp();
-        // }
+        
+
+
 }
