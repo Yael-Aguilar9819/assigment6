@@ -12,11 +12,11 @@ class namesSeparatorTest {
         /**
          * Rigorous Test.
          */
-        namesSeparator injector;
+        NamesSeparator injector;
     
         @Test
         void separationByCommaTestSuccessWholeArray() {
-            injector = new separateNamesByComma();
+            injector = new SeparateNamesByComma();
 
             List<String> a = injector.separateNames("josh, rick");
 

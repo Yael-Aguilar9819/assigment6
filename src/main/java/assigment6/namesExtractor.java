@@ -1,5 +1,5 @@
 package assigment6;
 
-public interface namesExtractor {
+public interface NamesExtractor {
 
 }
