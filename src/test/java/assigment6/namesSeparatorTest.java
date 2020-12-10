@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 class namesSeparatorTest {
@@ -21,8 +20,28 @@ class namesSeparatorTest {
             List<String> a = injector.separateNames("josh, rick");
 
             
-            assertEquals("[josh, kris]", a.toString());
+            assertEquals("[Josh, Rick]", a.toString());
         }
+
+        @Test
+        void separationBySpaceTestSuccessOneElement() {
+
+            injector = new SeparateNamesBySpace();
+
+            List<String> a = injector.separateNames("Robert   Joseph");
+            
+            assertEquals("Joseph", a.get(1));
+        }
+
+        @Test
+        void separationBySpaceTestSuccessWholeArray() {
+
+            injector = new SeparateNamesBySpace();
+
+            List<String> a = injector.separateNames("Robert   Joseph");
+            
+            assertEquals("Joseph", a.get(1));
+        }   
 
         
 
