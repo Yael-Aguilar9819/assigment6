@@ -5,13 +5,14 @@ import java.util.Map;
 
 public class NamesPopularityMap {
     String name;
-    Map<String, Integer> namePopularity;
+    Map<String, NameEntry> namePopularity;
 
 
     //The constructor gives the names to it's 
-    public NamesPopularityMap(List<String> namesToSearch) {
+    public NamesPopularityMap(List<String> namesToSearch, NamesDB namesDB) {
         for (String name : namesToSearch) {
-            namePopularity.put(name, 0);
+            
+            // namePopularity.put(name, 0); we should change it 
         }
     }
 
