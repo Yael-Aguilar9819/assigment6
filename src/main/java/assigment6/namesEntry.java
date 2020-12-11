@@ -1,14 +1,18 @@
 package assigment6;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class NamesEntry {
     String name;
-    List<String> namesToSearch = new ArrayList<String>();
+    Map<String, Integer> namePopularity;
 
-    public NamesEntry(String names) {
-        
+
+    //The constructor gives the names to it's 
+    public NamesEntry(List<String> namesToSearch) {
+        for (String name : namesToSearch) {
+            namePopularity.put(name, 0);
+        }
     }
 
 }
