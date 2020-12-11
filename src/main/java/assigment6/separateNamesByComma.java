@@ -1,8 +1,6 @@
 package assigment6;
 
 import java.util.List;
-import java.util.stream.Stream;
-import java.util.stream.Collectors;
 
 public class SeparateNamesByComma implements NamesSeparator {
 

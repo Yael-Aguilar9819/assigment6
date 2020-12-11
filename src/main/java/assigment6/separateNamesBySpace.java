@@ -1,6 +1,5 @@
 package assigment6;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class SeparateNamesBySpace implements NamesSeparator {
@@ -14,9 +13,4 @@ public class SeparateNamesBySpace implements NamesSeparator {
         return result;
     }
 
-    public static void main(String[] args) {
-        NamesSeparator sd =  new SeparateNamesBySpace();
-        List<String> nombrecitos =  sd.separateNames("Josh   Kennan  rikix");
-        System.out.println(nombrecitos.toString());
-    }
 }
