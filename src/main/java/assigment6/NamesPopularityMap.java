@@ -3,13 +3,13 @@ package assigment6;
 import java.util.List;
 import java.util.Map;
 
-public class NamesEntry {
+public class NamesPopularityMap {
     String name;
     Map<String, Integer> namePopularity;
 
 
     //The constructor gives the names to it's 
-    public NamesEntry(List<String> namesToSearch) {
+    public NamesPopularityMap(List<String> namesToSearch) {
         for (String name : namesToSearch) {
             namePopularity.put(name, 0);
         }
