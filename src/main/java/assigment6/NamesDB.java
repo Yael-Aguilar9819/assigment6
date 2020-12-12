@@ -4,6 +4,10 @@ package assigment6;
 //Like fetch popularity name
 //Existance of name
 
-public interface NamesDB {
+import java.util.List;
 
+public interface NamesDB {
+    public boolean nameExists(String name);
+    public List<Integer> popularityOfName(String name);
+    public void updateDB();
 } 
