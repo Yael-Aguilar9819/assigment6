@@ -3,6 +3,7 @@ package assigment6;
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +29,19 @@ public class NamesFromTextfileInMemory implements NamesDB{
     }
 
     public List<Integer> popularityOfName(String name) {
-        return inMemoryMap.get(name);
+        if (inMemoryMap.containsKey(name)) {
+            return inMemoryMap.get(name);
+        }
+
+        List<Integer> popularityFilledWithZeros = new ArrayList<Integer>();
+
+        for (List<Integer> value : inMemoryMap.values()) {
+            //It's going to return a list of the number of integers of popularity, but filled with 0
+            popularityFilledWithZeros = new ArrayList<Integer>(Collections.nCopies(value.size(), 0));
+            break;
+        }
+        return popularityFilledWithZeros;
+
     }
 
     public void updateDB() {
@@ -65,10 +78,12 @@ public class NamesFromTextfileInMemory implements NamesDB{
           }
     }
 
+    public Map<String, List<Integer>> getPopularityOfManyNames(List<String> names) {
+        Map<String, List<Integer>> popularityOfManyNames = new HashMap<>();
 
-    public static void main(String[] args) {
-      NamesFromTextfileInMemory DataDB = new NamesFromTextfileInMemory("C:\\Users\\spart\\Downloads\\"
-                                                             + "Assignment6\\Assignment6\\names-data.txt", " "); 
-        System.out.println(DataDB.nameExists("Abigale"));
+        for (String name : names) {
+            popularityOfManyNames.put(name, popularityOfName(name));
+        }
+        return popularityOfManyNames;
     }
 }

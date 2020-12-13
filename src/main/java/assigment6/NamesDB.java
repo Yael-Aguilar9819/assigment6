@@ -5,9 +5,11 @@ package assigment6;
 //Existance of name
 
 import java.util.List;
+import java.util.Map;
 
 public interface NamesDB {
     public boolean nameExists(String name);
     public List<Integer> popularityOfName(String name);
     public void updateDB();
+    public Map<String, List<Integer>> getPopularityOfManyNames(List<String> names);
 } 
