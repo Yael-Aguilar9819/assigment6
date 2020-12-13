@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class NamesFromTextOnPremise{
-    File originFile;
-    String separator;
-    Map<String, List<Integer>> namesSeenWithPopularity = new HashMap<>();
+public class NamesFromTextOnPremise {
+    private File originFile;
+    private String separator;
+    private Map<String, List<Integer>> namesSeenWithPopularity = new HashMap<>();
 
 
     public NamesFromTextOnPremise(String pathToFile, String separator) {
@@ -41,7 +41,11 @@ public class NamesFromTextOnPremise{
             System.out.println("This is not a path to a file.");
             e.printStackTrace();
         }
-        return true;
+
+        if (namesSeenWithPopularity.containsKey(name)) {
+            return true;
+        }
+        return false;
     }
 
     // public List<Integer> popularityOfName(String name);
@@ -65,6 +69,6 @@ public class NamesFromTextOnPremise{
 
     public static void main(String[] args) {
         NamesFromTextOnPremise news = new NamesFromTextOnPremise("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
-        
+        System.out.println(news.nameExists("dsdh"));
     }
 }

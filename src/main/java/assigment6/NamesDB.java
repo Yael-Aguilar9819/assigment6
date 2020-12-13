@@ -9,7 +9,7 @@ import java.util.Map;
 
 public interface NamesDB {
     public boolean nameExists(String name);
-    public List<Integer> popularityOfName(String name);
+    public List<Integer> getPopularityOfName(String name);
     public void updateDB();
     public Map<String, List<Integer>> getPopularityOfManyNames(List<String> names);
 } 

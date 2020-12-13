@@ -22,7 +22,13 @@
     <jacoco.unit-tests.limit.class-complexity>20</jacoco.unit-tests.limit.class-complexity>
     <jacoco.unit-tests.limit.method-complexity>5</jacoco.unit-tests.limit.method-complexity>
   </properties>
+  
   <dependencies>
+  <dependency>
+   <groupId>org.apache.commons</groupId>
+   <artifactId>commons-text</artifactId>
+   <version>1.9</version>
+  </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
