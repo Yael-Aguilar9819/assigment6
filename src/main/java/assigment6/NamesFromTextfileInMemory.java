@@ -4,7 +4,7 @@ import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.ArrayList;
 import java.util.Collections;
-import org.apache.commons.lang.WordUtils;
+import org.apache.commons.text.WordUtils;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,15 +23,15 @@ public class NamesFromTextfileInMemory implements NamesDB{
     }
 
     public boolean nameExists(String name) {
-        if (inMemoryMap.containsKey(org.apache.commons.text.WordUtils.capitalizeFully(name))) {
+        if (inMemoryMap.containsKey(WordUtils.capitalizeFully(name))) {
             return true;
         }
         return false;
     }
 
     public List<Integer> getPopularityOfName(String name) {
-        if (inMemoryMap.containsKey(name)) {
-            return inMemoryMap.get(name);
+        if (inMemoryMap.containsKey(WordUtils.capitalizeFully(name))) {
+            return inMemoryMap.get(WordUtils.capitalizeFully(name));
         }
 
         List<Integer> popularityFilledWithZeros = new ArrayList<Integer>();
@@ -83,12 +83,8 @@ public class NamesFromTextfileInMemory implements NamesDB{
         Map<String, List<Integer>> popularityOfManyNames = new HashMap<>();
 
         for (String name : names) {
-            popularityOfManyNames.put(name, getPopularityOfName(name));
+            popularityOfManyNames.put(WordUtils.capitalizeFully(name), getPopularityOfName(name));
         }
         return popularityOfManyNames;
-    }
-    public static void main(String[] args) {
-        NamesDB news = new NamesFromTextfileInMemory("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
-        System.out.println(news.nameExists("dsdh"));
     }
 }
