@@ -46,7 +46,7 @@ public class NamesFromTextfileInMemory implements NamesDB{
     }
 
     public void updateDB() {
-        addingNamesToTheHashmap(" ");
+        addingNamesToTheHashmap("");
     }
 
     private void addingNamesToTheHashmap(String separator) {

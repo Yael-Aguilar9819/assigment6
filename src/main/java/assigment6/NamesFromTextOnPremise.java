@@ -52,6 +52,7 @@ public class NamesFromTextOnPremise implements NamesDB {
     }
 
     public List<Integer> getPopularityOfName(String name) {
+        
         String capitalizedName = WordUtils.capitalizeFully(name);
 
         //If it's already "cached"it's going to simply get it form that map
@@ -59,26 +60,26 @@ public class NamesFromTextOnPremise implements NamesDB {
             return namesSeenWithPopularity.get(capitalizedName);
         }
 
-        try (Scanner lineReader = new Scanner(originFile)){
-            //The list that is going to be added to the hashmap
-            List<Integer> partialPopularityList = new ArrayList<>();
-            
-            while (lineReader.hasNextLine()) {
-                String[] data = lineReader.nextLine().split(separator);
-                // addNamesAndPopularityToHashMap(data, capitalizedName, partialPopularityList, );
-            }
-
-        } catch (FileNotFoundException e) {
-            System.out.println("This is not a path to a file.");    
-            e.printStackTrace();
-        }
-    }
-    public Map<String, List<Integer>> getPopularityOfManyNames(List<String> names) {
+        //We merge the main map with the one we got
+        Map<String, List<Integer>> mapToMerge = getMapFromPopularityOfNamesUpdated(originFile, capitalizedName);
+        namesSeenWithPopularity.putAll(mapToMerge);
         
+        List<Integer>popularityOfName = namesSeenWithPopularity.get(capitalizedName);
+        if (popularityOfName.equals(null)) {
+
+        }        
+
+        return popularityOfName;
+    }
+
+
+    public Map<String, List<Integer>> getPopularityOfManyNames(List<String> names) {
+        Map<String, List<Integer>> hashi =  new HashMap<>();
+        return hashi;
     }
 
     //This method uses whatever maps you give to it
-    private void addNamesAndPopularityToHashMap(String[] data, String name, List<Integer>popularityList, Map<String, List<Integer>> agreggatedPopularityMap) {
+    private void addNamesAndPopularityToHashMap(String[] data, String name, List<Integer> popularityList, Map<String, List<Integer>> agreggatedPopularityMap) {
         for (int i=0; i < data.length; i++) {
             //If the name it's the same as the first word, it's going to count 
             if (data[0].equals(name)) {
@@ -86,15 +87,39 @@ public class NamesFromTextOnPremise implements NamesDB {
                     continue;
                 }
                 popularityList.add(Integer.parseInt(data[i]));
-                agreggatedPopularityMap.put(name, popularityList);
             }
             else {
                 break;
             }
         }
+        agreggatedPopularityMap.put(name, popularityList);
     }
 
-    private Map<String, List<Integer>> scannerToBringPopularityOfNames(Scanner scan, )
+    private Map<String, List<Integer>> getMapFromPopularityOfNamesUpdated(File fileToScan, String capitalizedName) {
+
+        //It shoudl be 
+        Map<String,List<Integer>> mapOfPopularity = new HashMap<>();
+
+        try (Scanner lineReader = new Scanner(fileToScan)){
+            //The list that is going to be added to the hashmap
+            List<Integer> partialPopularityList = new ArrayList<>();
+            
+            while (lineReader.hasNextLine()) {
+                String[] data = lineReader.nextLine().split(separator);
+                addNamesAndPopularityToHashMap(data, capitalizedName, partialPopularityList, mapOfPopularity);
+            }
+
+
+        } catch (FileNotFoundException e) {
+            System.out.println("This is not a path to a file.");    
+            e.printStackTrace();
+        }
+
+        return mapOfPopularity;
+
+    }
+
+    
 
     public static void main(String[] args) {
         NamesFromTextOnPremise news = new NamesFromTextOnPremise("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");

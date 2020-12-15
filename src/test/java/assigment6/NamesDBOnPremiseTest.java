@@ -27,7 +27,7 @@ class NamesDBOnPremiseTest {
 
 
     @Test
-    void getPopularityOfNameThatExistsInMemory() {
+    void getPopularityOfNameThatExistsOnPremise() {
         NamesDB onPremiseNameDB = new NamesFromTextOnPremise("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
         List<Integer> comparedList = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 380, 215);
         
@@ -35,7 +35,7 @@ class NamesDBOnPremiseTest {
     }
 
     @Test
-    void getPopularityOfNameThatExistsBadCapitalizationInMemory() {
+    void getPopularityOfNameThatExistsBadCapitalizationOnPremise() {
         NamesDB onPremiseNameDB = new NamesFromTextOnPremise("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
         List<Integer> comparedListAth = Arrays.asList(0, 0, 0, 0, 0, 0, 783, 623, 659,730,532);
         
@@ -43,7 +43,7 @@ class NamesDBOnPremiseTest {
     }
 
     @Test
-    void getPopularityOfNameThatDoesntExistsInMemory() {
+    void getPopularityOfNameThatDoesntExistsOnPremise() {
         NamesDB onPremiseNameDB = new NamesFromTextOnPremise("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
         List<Integer> comparedList = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         
@@ -51,7 +51,7 @@ class NamesDBOnPremiseTest {
     }
 
     @Test
-    void getPopularityOfBlankNameInMemory() {
+    void getPopularityOfBlankNameOnPremise() {
         NamesDB onPremiseNameDB = new NamesFromTextOnPremise("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
         List<Integer> comparedList = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         
@@ -60,7 +60,7 @@ class NamesDBOnPremiseTest {
 
 
     @Test
-    void getPopularityOfSpaceInMemory() {
+    void getPopularityOfSpaceOnPremise() {
         NamesDB onPremiseNameDB = new NamesFromTextOnPremise("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
         List<Integer> comparedList = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         
@@ -68,7 +68,7 @@ class NamesDBOnPremiseTest {
     }
 
     @Test
-    void getPopularityOfManyNames1Exist2DoesntInMemory() {
+    void getPopularityOfManyNames1Exist2DoesntOnPremise() {
         NamesDB onPremiseNameDB = new NamesFromTextOnPremise("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
         List<Integer> comparedList1 = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         List<Integer> comparedList2 = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -87,7 +87,7 @@ class NamesDBOnPremiseTest {
     }
 
     @Test
-    void getPopularityOfManyNamesBlankDoesntInMemory() {
+    void getPopularityOfManyNamesBlankDoesntOnPremise() {
         NamesDB onPremiseNameDB = new NamesFromTextOnPremise("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
         List<Integer> comparedList1 = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         List<List<Integer>> dsd = new ArrayList<>();
@@ -101,6 +101,13 @@ class NamesDBOnPremiseTest {
         assertEquals(onPremiseNameDB.getPopularityOfManyNames(listOfNames), testing);
     }
 
+    Map<String, List<Integer>> helperMethodToGetHashMapOfPop(List<String> listOfNames, List<List<Integer>> listOfLists) {
+        Map<String, List<Integer>> trydf = new HashMap<>();
+        for (int i=0; i < listOfNames.size(); i++) {
+            trydf.put(listOfNames.get(i), listOfLists.get(i));
+        }
+        return trydf;
+    }
 
 
 }
