@@ -147,7 +147,7 @@ class NamesDBOnPremiseTest {
         
         assertEquals(onPremiseNameDB.getPopularityOfManyNames(listOfNames), testing);
     }
-
+    
     Map<String, List<Integer>> helperMethodToGetHashMapOfPop(List<String> listOfNames, List<List<Integer>> listOfLists) {
         Map<String, List<Integer>> trydf = new HashMap<>();
         for (int i=0; i < listOfNames.size(); i++) {

@@ -44,7 +44,7 @@ class namesDBInMemoryTest {
 
     @Test
     void getPopularityOfNameThatDoesntExistsInMemory() {
-        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
+        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("names-data.txt", " ");
         List<Integer> comparedList = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         
         assertEquals(inMemoryNameDB.getPopularityOfName("dfsf"), comparedList);
@@ -52,7 +52,7 @@ class namesDBInMemoryTest {
 
     @Test
     void getPopularityOfBlankNameInMemory() {
-        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
+        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("names-data.txt", " ");
         List<Integer> comparedList = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         
         assertEquals(inMemoryNameDB.getPopularityOfName(""), comparedList);
@@ -61,7 +61,7 @@ class namesDBInMemoryTest {
 
     @Test
     void getPopularityOfSpaceInMemory() {
-        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
+        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("names-data.txt", " ");
         List<Integer> comparedList = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         
         assertEquals(inMemoryNameDB.getPopularityOfName(" "), comparedList);
@@ -69,7 +69,7 @@ class namesDBInMemoryTest {
 
     @Test
     void getPopularityOfManyNames1Exist2DoesntInMemory() {
-        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
+        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("names-data.txt", " ");
         List<Integer> comparedList1 = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         List<Integer> comparedList2 = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         List<Integer> comparedList3 = Arrays.asList(801, 683, 784, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -88,7 +88,7 @@ class namesDBInMemoryTest {
 
     @Test
     void getPopularityOfManyNamesBlankDoesntInMemory() {
-        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
+        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("names-data.txt", " ");
         List<Integer> comparedList1 = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         List<List<Integer>> dsd = new ArrayList<>();
         dsd.add(comparedList1);
