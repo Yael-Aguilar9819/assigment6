@@ -87,4 +87,30 @@ public class NamesFromTextfileInMemory implements NamesDB{
         }
         return popularityOfManyNames;
     }
+
+    public static void main(String[] args) {
+        final long startTime = System.currentTimeMillis();
+        NamesDB inMemory = new NamesFromTextfileInMemory("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
+        
+        final long endTime = System.currentTimeMillis();
+        
+        System.out.println("Total execution time of constructing the object: " + (endTime - startTime));
+        
+        final long startTime2 = System.currentTimeMillis();
+        
+        inMemory.getPopularityOfName("atHena");
+        final long endTime2 = System.currentTimeMillis();
+        
+        System.out.println("Total execution time of searching name that exists: " + (endTime2 - startTime2));
+        
+        
+        final long startTime3 = System.currentTimeMillis();
+        
+        inMemory.getPopularityOfName("ue");
+        final long endTime3 = System.currentTimeMillis();
+        
+        System.out.println("Total execution time of searching name that doesnt exists: " + (endTime3 - startTime3));
+        
+    }
+
 }

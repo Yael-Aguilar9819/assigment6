@@ -206,12 +206,4 @@ public class NamesFromTextOnPremise implements NamesDB {
         return popularityOfName;
     }
 
-    public static void main(String[] args) {
-        NamesFromTextOnPremise news = new NamesFromTextOnPremise("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
-        
-        NamesSeparator injector = new SeparateNamesByComma();
-        List<String> listOfNames = injector.separateNames("jsds, jsdsd, Hamilton");
-        System.out.println(news.getPopularityOfManyNames(listOfNames));
-
-    }
 }
