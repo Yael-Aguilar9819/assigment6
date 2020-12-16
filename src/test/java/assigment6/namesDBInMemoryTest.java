@@ -16,19 +16,19 @@ class namesDBInMemoryTest {
     
     @Test
     void findNameThatExistsInMemory() {
-        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
+        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("names-data.txt", " ");
         assertEquals(inMemoryNameDB.nameExists("Abe"), true);
     }
 
     @Test
     void findNameThatDoesntExistsInMemory() {
-        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
+        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("names-data.txt", " ");
         assertEquals(inMemoryNameDB.nameExists("dsfjh"), false);
     }
 
     @Test
     void getPopularityOfNameThatExistsInMemory() {
-        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
+        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("names-data.txt", " ");
         List<Integer> comparedList = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 380, 215);
         
         assertEquals(inMemoryNameDB.getPopularityOfName("Aaliyah"), comparedList);
@@ -36,7 +36,7 @@ class namesDBInMemoryTest {
 
     @Test
     void getPopularityOfNameThatExistsBadCapitalizationInMemory() {
-        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("C:\\Users\\spart\\Downloads\\Assignment6\\Assignment6\\names-data.txt", " ");
+        NamesDB inMemoryNameDB = new NamesFromTextfileInMemory("names-data.txt", " ");
         List<Integer> comparedListAth = Arrays.asList(0, 0, 0, 0, 0, 0, 783, 623, 659,730,532);
         
         assertEquals(inMemoryNameDB.getPopularityOfName("atHena"), comparedListAth);
