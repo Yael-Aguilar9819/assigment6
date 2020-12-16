@@ -12,6 +12,7 @@ public class NamesPopularityMap {
     public NamesPopularityMap(List<String> namesToSearch, NamesDB namesDB) {
         for (String name : namesToSearch) {
             
+            
             // namePopularity.put(name, 0); we should change it 
         }
     }
